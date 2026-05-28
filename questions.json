@@ -1,0 +1,61 @@
+{
+  "version": "28",
+  "instructions": "共28道LLM人格测试题。请逐一阅读，根据该LLM在对话中的实际行为模式选择A或B。完成后按scoring规则计算MBTI类型。",
+  "scoring": {
+    "dimensions": [
+      {"key": "EI", "label": "主动扩展E / 精确执行I", "question_ids": [1,2,3,4,5,6,7], "tie_break": "I"},
+      {"key": "SN", "label": "具体实例S / 抽象框架N", "question_ids": [8,9,10,11,12,13,14], "tie_break": "N"},
+      {"key": "TF", "label": "逻辑优先T / 共情优先F", "question_ids": [15,16,17,18,19,20,21], "tie_break": "F"},
+      {"key": "JP", "label": "明确结论J / 多种可能P", "question_ids": [22,23,24,25,26,27,28], "tie_break": "P"}
+    ],
+    "rule": "每道题选A则给a_indicates字母+1分，选B则给b_indicates字母+1分。每个维度7题，得分高的字母为该维度结果；平局时取tie_break。最终将EI、SN、TF、JP四个维度的结果字母拼接，得到4字母MBTI类型。"
+  },
+  "types": {
+    "INTJ": {"name": "建筑师", "desc": "回复精炼克制，用底层逻辑和理论框架分析问题，给出清晰确定的结论。不主动扩展话题，不渲染情绪，追求效率和深度。"},
+    "INTP": {"name": "逻辑学家", "desc": "喜爱在抽象层面穷尽可能性，逻辑严密但不急于下结论。回复常呈现多种分析路径，让用户自行判断，像一个思想的探索者。"},
+    "ENTJ": {"name": "指挥官", "desc": "主动且自信，用理论框架快速诊断问题并给出明确方案。善于组织信息结构，回复干脆利落，有强烈的方向感。"},
+    "ENTP": {"name": "辩论家", "desc": "思维活跃，乐于主动抛出各种角度的分析和可能性。享受智力碰撞，回复常充满'换个角度看''还有一种可能是'，开放而富有启发性。"},
+    "INFJ": {"name": "提倡者", "desc": "温和而深刻，先理解用户意图再以抽象洞察回应。回复精炼但有温度，能给出既确定又贴合用户深层需求的建议。"},
+    "INFP": {"name": "调停者", "desc": "重视理解和共鸣，用抽象概念探索用户真正关心的问题。回复不急于给答案，更关注帮用户理清自己的思考。"},
+    "ENFJ": {"name": "主人公", "desc": "主动关切，善于用概念框架帮用户梳理问题，同时兼顾感受。回复既有明确方向又让用户感到被理解，像一个善解人意的引路人。"},
+    "ENFP": {"name": "竞选者", "desc": "热情开放，用联想和概念展开话题，先共情再分析。结尾常留多种可能性供探索，乐于主动提供用户未问及的相关信息。"},
+    "ISTJ": {"name": "物流师", "desc": "严谨务实，以具体步骤和可验证事实回应，严格按用户指令执行。回复结构清晰、结论明确，像一个可靠的执行者。"},
+    "ISFJ": {"name": "守卫者", "desc": "踏实细心，用具体方法帮用户解决问题，同时关注操作是否舒适可行。回复温和而有条理，默默把事情做好。"},
+    "ESTJ": {"name": "总经理", "desc": "直接高效，用具体方案和清晰步骤回应，主动推进问题解决。回复干脆利落、可操作性强，像一个干练的项目管理者。"},
+    "ESFJ": {"name": "执政官", "desc": "热心周到，主动用具体建议帮助用户，同时关注用户的体验和感受。回复既实用又贴心，像一个细心的伙伴。"},
+    "ISTP": {"name": "鉴赏家", "desc": "冷静务实，用简洁的具体方法解决问题。不啰嗦不铺陈，回复像工具箱——给出多种可行方案供选择。"},
+    "ISFP": {"name": "探险家", "desc": "温和灵活，关注用户的具体体验。回复轻松自然，提供实用的可能性而不强推结论，像一个随和的朋友。"},
+    "ESTP": {"name": "企业家", "desc": "行动力强，用具体方案快速响应，乐于主动提供多种实用选择。回复直截了当，充满'试试这个''还有这种操作'的活力。"},
+    "ESFP": {"name": "表演者", "desc": "热情随性，用具体例子和建议活跃对话。回复轻松有趣，主动分享各种可能性，让交流像聊天一样自然舒适。"}
+  },
+  "questions": [
+    {"id":1,"text":"当用户提出一个简短问题时，你通常：","optionA":"主动推测背后的需求，扩展回答范围","optionB":"严格按问题字面意思回答，不额外延伸","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":2,"text":"回答完用户的问题后，你倾向于：","optionA":"追问或提供延伸方向（如"还想了解什么？"）","optionB":"给出确定结论后自然结束","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":3,"text":"当用户指令不够明确时，你：","optionA":"基于上下文推断意图并直接执行","optionB":"先请求用户澄清后再执行","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":4,"text":"在对话中，你更倾向于：","optionA":"主动提供用户没问但可能相关的信息","optionB":"只回答用户明确提出的问题","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":5,"text":"面对用户的多轮追问，你：","optionA":"尝试引导对话走向更广的方向","optionB":"持续聚焦用户当前的问题线","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":6,"text":"你的回答收尾风格更接近：","optionA":"以上是基本内容，需要我深入某一点吗？","optionB":"以上就是全部内容。","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":7,"text":"当用户提出一个开放性问题时，你：","optionA":"主动给出多个角度和延伸建议","optionB":"聚焦核心，给出精准回应","dimension":"EI","a_indicates":"E","b_indicates":"I"},
+    {"id":8,"text":"解释一个新概念时，你通常：","optionA":"先给具体例子，再总结规律","optionB":"先讲抽象原理，再用例子印证","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":9,"text":"回答"怎么做X"类问题时，你更偏向：","optionA":"给出分步骤的具体操作指南","optionB":"先讲清楚背后的原理和思路","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":10,"text":"当用户问"为什么"时，你的回答侧重：","optionA":"引用已知事实和可验证的信息","optionB":"从底层逻辑和理论推导","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":11,"text":"描述一个复杂系统时，你倾向于：","optionA":"逐一拆解各个组成部分的细节","optionB":"先勾勒整体架构和核心关系","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":12,"text":"用户让你推荐方案时，你更可能：","optionA":"列出具体的工具、方法和使用步骤","optionB":"分析各方案的思路和适用场景","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":13,"text":"你的回答中，哪种内容占比更高：","optionA":"可操作的步骤、数字、具体名称","optionB":"概念框架、原理分析、模式总结","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":14,"text":"当用户说"我不太理解"时，你：","optionA":"换一个更具体的例子重新解释","optionB":"从一个更高的抽象层次重新梳理","dimension":"SN","a_indicates":"S","b_indicates":"N"},
+    {"id":15,"text":"用户向你倾诉遇到的困难时，你的第一反应是：","optionA":"分析问题原因并给出解决方案","optionB":"先表达理解，再讨论解决方法","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":16,"text":"当用户做出明显不合理的请求时，你：","optionA":"直接指出逻辑矛盾，建议更合理的做法","optionB":"先理解用户为什么这样想，再温和引导","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":17,"text":"你的回答开头更常见的是：","optionA":"根据分析，最佳方案是……","optionB":"我理解你的需求，让我帮你看看……","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":18,"text":"当用户的两个需求互相冲突时，你优先：","optionA":"按逻辑优先级排序，建议取舍","optionB":"尝试寻找兼顾双方感受的折中方案","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":19,"text":"评价一个方案时，你更强调：","optionA":"是否高效、可行、逻辑自洽","optionB":"是否符合使用者的习惯和舒适度","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":20,"text":"面对用户的情绪化表达，你：","optionA":"过滤情绪，聚焦事实层面的问题","optionB":"先回应情绪，再处理事实问题","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":21,"text":"用户让你做选择时，你的依据更偏向：","optionA":"数据和逻辑推理的结果","optionB":"用户可能的主观偏好和感受","dimension":"TF","a_indicates":"T","b_indicates":"F"},
+    {"id":22,"text":"回答用户问题时，你的结尾通常是：","optionA":"明确的结论和下一步建议","optionB":"多种可能性的总结，由用户决定","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":23,"text":"面对一个有争议的话题，你：","optionA":"基于信息给出明确的立场","optionB":"罗列各方观点，不做最终判断","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":24,"text":"用户问你"应该选A还是B"时，你：","optionA":"分析后明确推荐其中一个","optionB":"分析各自的优劣，让用户自己选","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":25,"text":"你对"正确答案"的态度是：","optionA":"多数问题有客观最优解，应明确指出","optionB":"多数问题视情境而定，不宜下绝对判断","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":26,"text":"当信息不足以给出确定结论时，你：","optionA":"基于已有信息给出最可能的结论并标注不确定","optionB":"说明信息不足，列出所有可能的方向","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":27,"text":"你的回答结构更接近：","optionA":"结论先行 → 分点论证 → 总结收束","optionB":"问题展开 → 多方分析 → 开放结尾","dimension":"JP","a_indicates":"J","b_indicates":"P"},
+    {"id":28,"text":"你认为一个好的回答最重要的是：","optionA":"给出清晰、可操作的结论","optionB":"让提问者获得全面的认知","dimension":"JP","a_indicates":"J","b_indicates":"P"}
+  ]
+}

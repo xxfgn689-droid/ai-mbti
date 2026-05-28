@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/questions.json", "destination": "/questions.json" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
