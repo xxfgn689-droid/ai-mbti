@@ -43,6 +43,8 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/api/questions":
             self._json({"version": "28", "total": len(QUESTIONS), "questions": QUESTIONS})
+        elif self.path == "/":
+            self._json({"name": "AI MBTI Test API", "version": "1.0", "endpoints": {"/api/questions": "GET - 获取所有题目", "/api/submit": "POST - 提交答案获取结果"}})
         else:
             self._json({"error": "Not found"}, 404)
 
