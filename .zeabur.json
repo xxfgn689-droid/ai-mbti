@@ -1,0 +1,6 @@
+{
+  "name": "ai-mbti-test",
+  "description": "AI MBTI 测试 API",
+  "type": "docker",
+  "port": 3000
+}
